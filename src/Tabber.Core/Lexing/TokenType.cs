@@ -3,6 +3,16 @@
     public enum TokenType
     {
         None,
-        Let
+        
+        Int,
+
+        Let,
+        Function,
+
+        Identifier,
+        Comma,
+
+        EndOfScript,
+        Illegal
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Tabber.Core.Lexing
 {
@@ -15,6 +16,9 @@ namespace Tabber.Core.Lexing
             var hasValue = _scriptLetters.TryPeek(out var r);
             return hasValue ? r.ToString() : string.Empty;
         }
+
+        public bool IsEndOfScript() 
+            => _scriptLetters.Count == 0;
 
         public string Current()
             => _currentLetter;
