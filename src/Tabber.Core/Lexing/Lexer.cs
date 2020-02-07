@@ -18,7 +18,7 @@ namespace Tabber.Core.Lexing
 
             var currentToken = script.Next();
 
-            while (!script.IsEndOfScript())
+            while (!(script.IsEndOfScript() && string.IsNullOrEmpty(currentToken)))
             {
                 tokens.Add(ParseToken(currentToken, script));
 
