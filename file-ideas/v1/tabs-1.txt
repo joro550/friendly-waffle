@@ -1,20 +1,19 @@
 section "intro"
-    let MyNewChord
-        :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
+    let MyNewChord :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
 
     repeat 4
-        play_chord :A :OPEN
+        play :OpenA
 
     play MyNewChord
 
-    play
-        :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
+    play :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
+    slide :e 7 :B 7 :G 7 :D 7 :A 7 :E 7, :e 8 :B 8 :G 8 :D 8 :A 8 :E 8
 
-    slide
-        :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
-        :e 8 :B 8 :G 8 :D 8 :A 8 :E 8
+    play :wait
 
 main:
+    diagram "A", :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
+
     play_section "intro"
 
 
