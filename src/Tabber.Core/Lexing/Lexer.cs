@@ -36,6 +36,17 @@ namespace Tabber.Core.Lexing
 
             switch (currentToken)
             {
+                case ":":
+                {
+                    var identifier = script.Current();
+                    while (Regex.IsMatch(script.Peek(), "[a-zA-Z]"))
+                        identifier += script.Next();
+
+                    return identifier.Length == 1
+                        ? Token(TokenType.Illegal, string.Empty)
+                        : Token(TokenType.Constant, identifier);
+                }
+
                 case ",":
                     return Token(TokenType.Comma, currentToken);
                 default:
@@ -45,10 +56,10 @@ namespace Tabber.Core.Lexing
                         if (int.TryParse(identifier, out _))
                             return GetNumber(script, identifier);
 
-                        if (!Regex.IsMatch(identifier, "[a-zA-Z]"))
+                        if (!Regex.IsMatch(identifier, "[a-zA-Z_]"))
                             return Token(TokenType.Illegal, string.Empty);
 
-                        while (Regex.IsMatch(script.Peek(), "[a-zA-Z]"))
+                        while (Regex.IsMatch(script.Peek(), "[a-zA-Z_]"))
                             identifier += script.Next();
 
                         return Token(Keywords.ContainsKey(identifier)

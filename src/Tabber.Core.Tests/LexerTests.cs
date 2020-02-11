@@ -10,7 +10,9 @@ namespace Tabber.Core.Tests
         [InlineData("let", TokenType.Let)]
         [InlineData("section", TokenType.Function)]
         [InlineData(",", TokenType.Comma)]
-
+        [InlineData(":e", TokenType.Constant)]
+        [InlineData("MyNewChord", TokenType.Identifier)]
+        [InlineData("My_sNewChord", TokenType.Identifier)]
         public void WhenScriptContainsValidToken_ThenExpectedTokenTypeHasBeenPopulated(string script, TokenType expectedTokenType)
         {
             var tokens = Lexer.Tokenize(script);

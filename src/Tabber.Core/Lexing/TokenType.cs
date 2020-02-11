@@ -3,8 +3,9 @@
     public enum TokenType
     {
         None,
-        
+
         Int,
+        Constant,
 
         Let,
         Function,
