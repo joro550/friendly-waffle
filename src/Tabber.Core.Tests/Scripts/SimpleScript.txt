@@ -1,4 +1,4 @@
-section intro
+﻿section intro
     let MyNewChord :e 7 :B 7 :G 7 :D 7 :A 7 :E 7
 
     repeat 4
@@ -7,9 +7,6 @@ section intro
     play MyNewChord
     play :wait
 
-main
+main:
     play_section intro
-
-
-
 

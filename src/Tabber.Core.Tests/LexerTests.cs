@@ -1,6 +1,8 @@
-﻿using System.Linq;
-using Xunit;
+﻿using Xunit;
+using System.Linq;
 using Tabber.Core.Lexing;
+using Tabber.Core.Tests.Scripts;
+using static Tabber.Core.Tests.Scripts.Loader;
 
 namespace Tabber.Core.Tests
 {
@@ -21,6 +23,15 @@ namespace Tabber.Core.Tests
             Assert.NotNull(token);
             Assert.Equal(expectedTokenType, token.TokenType);
             Assert.Equal(script, token.Value);
+        }
+
+        [Fact]
+        public void GivenAScript_WithAllValidTokens_ThenListOfTokens()
+        {
+            var script = LoadFileContents(SimpleScript);
+            var tokens = Lexer.Tokenize(script);
+            var expectedTokens = Hello.H();
+            Assert.Equal(expectedTokens, tokens.Select(token => token.TokenType));
         }
     }
 }

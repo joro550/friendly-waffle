@@ -9,11 +9,14 @@
 
         Let,
         Function,
+        Eq,
 
         Identifier,
         Comma,
 
+        EntryPoint,
+
         EndOfScript,
-        Illegal
+        Illegal,
     }
 }
